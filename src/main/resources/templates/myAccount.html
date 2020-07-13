@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="common/header :: common-header"/>
+<body>
+<div th:replace="common/header :: navbar"/>
+
+<div class="container mt-3"><!--start main container-->
+    <div class="row" style="margin-bottom: -100px;">
+        <div class="col-xs-8 col-md-8">
+            <h2 class="section-headline"><span>User Account</span></h2>
+        </div>
+        <div class="col-xs-4 col-md-4">
+            <img src="/images/logo.png" alt="" class="img-fluid">
+        </div>
+    </div>
+    <hr style="position: absolute; width: 100%; height: 6px; background-color: #333; z-index: -1; margin-top: -80px"/>
+    <img src="/images/wood.png" class="img-fluid" style="margin-top: -75px;">
+
+    <div class="row" style="margin-top: 120px">
+        <div class="col-xs-9 col-md-9 col-xs-offset-3 col-md-offset-3">
+           <!--navigation tabs-->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="create-new-tab" data-toggle="tab" href="#create-new" role="tab" aria-controls="create-new" aria-selected="true"><span style="color: red;">Create New Account</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="false"><span style="color: red;">Log In</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><span style="color: red;">Forgot Password?</span></a>
+                </li>
+            </ul>
+            <!--navigation tabs ends-->
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="create-new" role="tabpanel" aria-labelledby="create-new-tab">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="">
+                                <div class="form-group">
+                                    <label for="username">User name</label>
+                                    <input type="text" class="form-control" name="username" id="username" required/>
+                                    <small>Please Enter Your Username</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="username">Email</label>
+                                    <input type="email" class="form-control" name="email" id="email" required/>
+                                    <small>A valid email address. All email from the system will sent to this address</small>
+                                </div>
+                                <button class="btn btn-primary" type="submit">Create new account</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="login" role="tabpanel" aria-labelledby="login-tab">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="">
+                                <div class="form-group">
+                                    <label for="username1">User name</label>
+                                    <input type="text" class="form-control" name="username" id="username1" required/>
+                                    <small>Please Enter Your Username</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" name="email" id="password" required/>
+                                    <small>Please enter your password</small>
+                                </div>
+                                <button class="btn btn-primary" type="submit">Log In</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="">
+
+                                <div class="form-group">
+                                    <label for="email2">Email</label>
+                                    <input type="email" class="form-control" name="email" id="email2" required/>
+                                    <small>Enter your registered email</small>
+                                </div>
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!--end main container-->
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<div th:replace="common/header :: body-bottom-scripts"/>
+</body>
+</html>
