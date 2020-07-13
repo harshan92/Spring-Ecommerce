@@ -1,0 +1,26 @@
+.box{
+    border: red 1px solid;
+}
+.container{
+    width: 90%;
+}
+hr{
+    border: none;
+    height: 1px;
+    color: #333;
+    background-color: #333;
+}
+
+.home-headline{
+    font-family: "Times New Roman",Times, Serif;
+    font-size: 24px;
+    color:#fff;
+    margin: auto;
+    text-align: center;
+    margin-top: 3px;
+}
+
+.home-headline span{
+    background-color: #231F20;
+    padding: 5px 22px;
+}
