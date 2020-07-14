@@ -21,18 +21,18 @@
            <!--navigation tabs-->
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="create-new-tab" data-toggle="tab" href="#create-new" role="tab" aria-controls="create-new" aria-selected="true"><span style="color: red;">Create New Account</span></a>
+                    <a class="nav-link " th:classappend="${classActiveNewAccount}? 'active'" id="create-new-tab" data-toggle="tab" href="#create-new" role="tab" aria-controls="create-new" aria-selected="true"><span style="color: red;">Create New Account</span></a>
+                </li>
+                <li class="nav-item" >
+                    <a class="nav-link" th:classappend="${classActiveLogin}? 'active'" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="false"><span style="color: red;">Log In</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="false"><span style="color: red;">Log In</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><span style="color: red;">Forgot Password?</span></a>
+                    <a class="nav-link" th:classappend="${classActiveForgetPassword}? 'active'" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><span style="color: red;">Forgot Password?</span></a>
                 </li>
             </ul>
             <!--navigation tabs ends-->
             <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="create-new" role="tabpanel" aria-labelledby="create-new-tab">
+                <div class="tab-pane fade " id="create-new" role="tabpanel" aria-labelledby="create-new-tab" th:classappend="${classActiveNewAccount}? 'show active'">
                     <div class="card">
                         <div class="card-body">
                             <form action="">
@@ -51,7 +51,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="login" role="tabpanel" aria-labelledby="login-tab">
+                <div class="tab-pane fade" id="login" role="tabpanel" aria-labelledby="login-tab" th:classappend="${classActiveLogin}? 'show active'">
                     <div class="card">
                         <div class="card-body">
                             <form action="">
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab" th:classappend="${classActiveForgetPassword}? 'show active'">
                     <div class="card">
                         <div class="card-body">
                             <form action="">
