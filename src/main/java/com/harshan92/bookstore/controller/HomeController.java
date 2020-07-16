@@ -1,8 +1,12 @@
 package com.harshan92.bookstore.controller;
 
+import com.harshan92.bookstore.domain.security.PasswordResetToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Locale;
 
 @Controller
 public class HomeController {
@@ -29,7 +33,8 @@ public class HomeController {
     }
 
     @RequestMapping("/forget_password")
-    public String forget_password(Model model){
+    public String forget_password(Locale locale, @RequestParam("token") String token, Model model){
+        PasswordResetToken passToken=userService.getPasswordResetToken(token);
         model.addAttribute("classActiveForgetPassword", true);
         return "myAccount";
     }
