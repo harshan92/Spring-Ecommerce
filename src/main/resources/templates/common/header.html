@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:fragment="common-header">
     <!-- Required meta tags -->
     <meta charset="utf-8"/>
@@ -47,8 +47,9 @@
 
             <ul class="navbar-nav mr-0">
                 <a class="nav-link" href="#">Shopping Cart</a>
-                <a class="nav-link" th:href="@{/login}">My Account</a>
-                <a class="nav-link" href="#">Logout</a>
+                <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/login}">My Account</a>
+                <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/myProfile}">My Account</a>
+                <a class="nav-link" sec:authorize="isAuthenticated()" href="@{/logout}">Logout</a>
             </ul>
         </div>
     </nav>

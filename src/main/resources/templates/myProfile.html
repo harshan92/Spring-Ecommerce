@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="common/header :: common-header"/>
+<body>
+<div th:replace="common/header :: navbar"/>
+
+<div class="container mt-3"><!--start main container-->
+    <div class="row" style="margin-bottom: -100px;">
+        <div class="col-xs-8 col-md-8">
+            <h2 class="section-headline"><span th:text="${#strings.toUpperCase{user.username}}"></span></h2>
+        </div>
+        <div class="col-xs-4 col-md-4">
+            <img src="/images/logo.png" alt="" class="img-fluid">
+        </div>
+    </div>
+    <hr style="position: absolute; width: 100%; height: 6px; background-color: #333; z-index: -1; margin-top: -80px"/>
+    <img src="/images/wood.png" class="img-fluid" style="margin-top: -75px;">
+
+    <div class="row" style="margin-top: 60px">
+        <div class="col-xs-9 col-md-9 col-xs-offset-3 col-md-offset-3">
+            <!--navigation tabs-->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link " th:classappend="${classActiveEditProfile}? 'active'" id="edit-profile-tab" data-toggle="tab" href="#edit-profile" role="tab" aria-controls="edit-profile" aria-selected="true"><span style="color: red;">Edit Profile</span></a>
+                </li>
+                <li class="nav-item" >
+                    <a class="nav-link" th:classappend="${classActiveOrders}? 'active'" id="orders-tab" data-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false"><span style="color: red;">Orders</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:classappend="${classActiveBilling}? 'active'" id="billing-tab" data-toggle="tab" href="#billing" role="tab" aria-controls="billing" aria-selected="false"><span style="color: red;">Billing</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:classappend="${classActiveShipping}? 'active'" id="shipping-tab" data-toggle="tab" href="#shipping" role="tab" aria-controls="shipping" aria-selected="false"><span style="color: red;">Shipping</span></a>
+                </li>
+            </ul>
+            <!--navigation tabs ends-->
+            <!--tabs contents-->
+            <div class="tab-content" id="myTabContent">
+                <!--Edit Profile Tab-->
+                <div class="tab-pane fade " id="edit-profile" role="tabpanel" aria-labelledby="edit-profile-tab" th:classappend="${classActiveEditProfile}? 'show active'">
+                    <div class="card">
+                        <div class="card-body">
+                            <form method="post" th:action="@{/updateUserInfo}">
+                                <input type="hidden" name="id" th:value="${user.id}">
+                                <div class="bg-info" th:if="${updateUserInfo}">User info updated.</div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-6 col-md-6">
+                                            <label for="first_name">First name</label>
+                                            <input type="text" class="form-control" name="firstName" id="first_name" th:value="${user.firstName}" required/>
+                                            <small>Please Enter Your First Name</small>
+                                        </div>
+                                        <div class="col-xs-6 col-md-6">
+                                            <label for="last_name">Last name</label>
+                                            <input type="text" class="form-control" name="lastName" id="last_name" th:value="${user.lastName}" required/>
+                                            <small>Please Enter Your Last Name</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" class="form-control" name="email" id="username" th:value="${user.userName}" required/>
+                                    <small>Please Enter Your Username</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="currentPassword">Current Password</label>
+                                    <input type="text" class="form-control" name="email" id="currentPassword" th:value="${user.currentPassword}" required/>
+                                    <small style="color:#828282;">Enter your current password to change the email address or password</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">* Email</label>
+                                    <input type="email" class="form-control" name="email" id="email" th:value="${user.email}" required/>
+                                    <small style="color:#828282;">Enter your valid email address</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtNewPassword">New Password</label>
+                                    <input type="password" class="form-control" name="txtNewPassword" id="txtNewPassword" th:value="${user.txtNewPassword}" required/>
+                                    <small style="color:#828282;">Enter your valid email address</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtConfirmPassword">Confirm Password</label>
+                                    <input type="password" class="form-control" name="txtConfirmPassword" id="txtConfirmPassword" th:value="${user.txtConfirmPassword}" required/>
+                                    <small style="color:#828282;">Enter your valid email address</small>
+                                </div>
+
+                                <button class="btn btn-primary" type="submit">Create new account</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--End Edit Profile Tab-->
+                <!--Orders Tab-->
+                <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab" th:classappend="${classActiveOrders}? 'show active'">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="">
+                                <div class="form-group">
+                                    <label for="username1">User name</label>
+                                    <input type="text" class="form-control" name="username" id="username1" required/>
+                                    <small>Please Enter Your Username</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" name="email" id="password" required/>
+                                    <small>Please enter your password</small>
+                                </div>
+                                <button class="btn btn-primary" type="submit">Log In</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--End Orders Tab-->
+                <!--Billing Tabs-->
+                <div class="tab-pane fade" id="billing" role="tabpanel" aria-labelledby="billing-tab" th:classappend="${classActiveBilling}? 'show active'">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="">
+
+                                <div class="form-group">
+                                    <label for="email2">Email</label>
+                                    <input type="email" class="form-control" name="email" id="email2" required/>
+                                    <small>Enter your registered email</small>
+                                </div>
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--End Billing Tabs-->
+                <!--Shipping Tab-->
+                <div class="tab-pane fade" id="shipping" role="tabpanel" aria-labelledby="shipping-tab" th:classappend="${classActiveShipping}? 'show active'">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="">
+
+                                <div class="form-group">
+                                    <label for="email2">Email</label>
+                                    <input type="email" class="form-control" name="email" id="email2" required/>
+                                    <small>Enter your registered email</small>
+                                </div>
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--End Shipping Tab-->
+            </div>
+        </div>
+    </div>
+</div> <!--end main container-->
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<div th:replace="common/header :: body-bottom-scripts"/>
+</body>
+</html>
